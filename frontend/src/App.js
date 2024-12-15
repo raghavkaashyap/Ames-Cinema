@@ -17,7 +17,7 @@ function App() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="App">
+    <div className="App bg-darker text-light">
       {userRole ? (
         <Router>
           <div className="d-flex">
@@ -25,7 +25,8 @@ function App() {
             <div className="flex-grow-1 p-3">
               <h1 className="text-center">Ames Cinema</h1>
               <Routes>
-                <Route path="/" element={<div>Welcome to AMES CINEMA</div>} />
+                <Route path="/" element={<div class="w-100">Welcome to AMES CINEMA <img className="w-100" src='/Images/Theater.jpg' alt="Theater"></img></div>
+              } />
                 <Route path="/movies" element={<Movies movies={movies} setMovies={setMovies} />} />
                 <Route path="/search-movies" element={<SearchMovies movies={movies} setMovies={setMovies} />} />
                 <Route path="/about" element={<About />} />

@@ -25,31 +25,31 @@ const Sidebar = ({ username, userRole }) => {
     }, [username]);
 
     return (
-        <div className="d-flex flex-column vh-100 p-3 bg-light" style={{ width: '250px' }}>
+        <div className="d-flex flex-column vh-100 p-3 bg-dark text-light" style={{ width: '250px' }}>
             <h2 className="text-center">Navigation</h2>
             <ul className="nav flex-column">
                 <li className="nav-item">
-                    <Link to="/" className="nav-link text-dark">Home</Link>
+                    <Link to="/" className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/about" className="nav-link text-dark">About</Link>
+                    <Link to="/about" className="nav-link">About</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/movies" className="nav-link text-dark">View All Movies</Link>
+                    <Link to="/movies" className="nav-link">View All Movies</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/search-movies" className="nav-link text-dark">Search Movies</Link>
+                    <Link to="/search-movies" className="nav-link">Search Movies</Link>
                 </li>
                 {userRole === "admin" && (
                     <>
                         <li className="nav-item">
-                            <Link to="/add-movie" className="nav-link text-dark">Add Movie</Link>
+                            <Link to="/add-movie" className="nav-link">Add Movie</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/delete-movie" className="nav-link text-dark">Delete Movie</Link>
+                            <Link to="/delete-movie" className="nav-link">Delete Movie</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/update-movie" className="nav-link text-dark">Update Movie</Link>
+                            <Link to="/update-movie" className="nav-link">Update Movie</Link>
                         </li>
                     </>
                 )}
