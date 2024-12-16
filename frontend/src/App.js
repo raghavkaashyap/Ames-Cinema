@@ -9,6 +9,7 @@ import UpdateMovie from "./UpdateMovie";
 import DeleteMovie from "./DeleteMovie"; 
 import Authentication from "./login"; 
 import About from "./About.js"
+import Payment from './Payment';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -37,6 +38,7 @@ function App() {
                     <Route path="/delete-movie" element={<DeleteMovie movies={movies} setMovies={setMovies} />} />
                   </>
                 )}
+                <Route path="/payment" element={<Payment />} />
               </Routes>
             </div>
           </div>

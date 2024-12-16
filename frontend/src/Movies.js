@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Movies = ({ movies, setMovies }) => {
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchMovies = async () => {
             try {
@@ -17,6 +20,17 @@ const Movies = ({ movies, setMovies }) => {
         };
         fetchMovies();
     }, [setMovies]);
+
+    const handleShowtimeClick = (movie, time) => {
+        navigate('/payment', {
+            state: {
+                title: movie.title,
+                price: movie.price,
+                time: time,
+                url: `http://localhost:8081${movie.url}`
+            }
+        });
+    };
 
     return (
         <div className="container mt-4">
@@ -37,13 +51,18 @@ const Movies = ({ movies, setMovies }) => {
                                 <h5 className="card-title">{movie.title}</h5>
                                 <h6 className="card-subtitle mb-2 text-muted">${movie.price}</h6>
                                 <p className="card-text">{movie.description}</p>
-                                <div class="btn-group flex-wrap">
-              <button type="button" class="text-nowrap bg-darker text-light" onclick="navigateToPayment('${title}', '11:40 AM', ${price}, '${url}')">11:40 AM</button>
-              <button type="button" class="text-nowrap bg-darker text-light" onclick="navigateToPayment('${title}', '2:10 PM', ${price}, '${url}')">2:10 PM</button>
-              <button type="button" class="text-nowrap bg-darker text-light" onclick="navigateToPayment('${title}', '4:40 PM', ${price}, '${url}')">4:40 PM</button>
-              <button type="button" class="text-nowrap bg-darker text-light" onclick="navigateToPayment('${title}', '7:10 PM', ${price}, '${url}')">7:10 PM</button>
-              <button type="button" class="text-nowrap bg-darker text-light" onclick="navigateToPayment('${title}', '9:40 PM', ${price}, '${url}')">9:40 PM</button>
-            </div>
+                                <div className="btn-group flex-wrap">
+                                    {['11:40 AM', '2:10 PM', '4:40 PM', '7:10 PM', '9:40 PM'].map((time) => (
+                                        <button
+                                            key={time}
+                                            type="button"
+                                            className="btn btn-outline-light"
+                                            onClick={() => handleShowtimeClick(movie, time)}
+                                        >
+                                            {time}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

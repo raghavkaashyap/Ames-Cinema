@@ -14,7 +14,7 @@ const mysql = require("mysql2");
 const db = mysql.createConnection({
     host: "127.0.0.1",
     user: "root",
-    password: "ArcherIsCute13!", //change to your password
+    password: "{password}", //change to your password
     database: "secoms3190",
 });
 
@@ -140,7 +140,6 @@ app.get("/timeslots", (req, res) => {
     const timeslots = [
         { movieId: "1234", title: "Oppenheimer", timeSlots: ["12:00 PM", "3:00 PM", "7:00 PM"] },
         { movieId: "A124", title: "The Martian", timeSlots: ["1:00 PM", "4:00 PM", "8:00 PM"] },
-        // Add more movies and time slots
     ];
     res.status(200).json(timeslots);
 });
