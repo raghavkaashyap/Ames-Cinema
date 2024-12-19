@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS `secoms3190`.`users` (
+    `id` INT AUTO_INCREMENT,
+    `username` VARCHAR(100) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `role` VARCHAR(20) NOT NULL DEFAULT 'user',
+    PRIMARY KEY (`id`)
+);
+
+INSERT INTO `secoms3190`.`users` (`username`, `password`, `role`)
+VALUES
+    ('Raghav Kaashyap', '123', 'admin'),
+    ('Jane Smith', '12345', 'user'),
+    ('Caleb Iddings', '7788', 'admin');
+
+CREATE TABLE IF NOT EXISTS `secoms3190`.`movies` (
+    `movieId` VARCHAR(20) PRIMARY KEY,
+    `title` VARCHAR(255) NOT NULL,
+    `url` VARCHAR(255) NOT NULL,
+    `price` DECIMAL(5,2) NOT NULL,
+    `description` TEXT NOT NULL
+);
+
+-- INSERT INTO `secoms3190`.`movies` (`movieId`, `title`, `url`, `price`, `description`) VALUES
+-- ('1234', 'Oppenheimer', '/Images/Oppenheimer.jpg', 7.00, 'science true story drama'),
+-- ('A124', 'The Martian', '/Images/Martian.jpg', 5.50, 'space survival rescue astronaut mars science fiction'),
+-- ('76788', 'Star Wars', '/Images/StarWars.jpg', 4.75, 'Sci-Fi space adventure'),
+-- ('BB124', 'Black Panther', '/Images/BlackPanther.jpg', 6.00, 'marvel hero action'),
+-- ('12345', 'Batman', '/Images/Batman.jpg', 6.50, 'hero action dc'),
+-- ('10983', 'Jaws', '/Images/Jaws.jpg', 5.75, 'horror action thriller');
+
+select * from movies;
